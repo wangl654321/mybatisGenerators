@@ -35,19 +35,20 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <!-- dto class -->
-        <javaModelGenerator targetPackage="model" targetProject="C:\Users\Administrator\Desktop">
+        <!-- model实体生成包路径 -->
+        <javaModelGenerator targetPackage="com.heepay.manage.modules.errorCheck.entity" targetProject="C:\Users\Administrator\Desktop">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <!-- mybatis xml file -->
-        <sqlMapGenerator targetPackage="dao" targetProject="C:\Users\Administrator\Desktop">
+        <!-- mybatis xml file 生成地址 -->
+        <sqlMapGenerator targetPackage="com.heepay.manage.modules.errorCheck.mapper" targetProject="C:\Users\Administrator\Desktop">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <!-- mapper class -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="C:\Users\Administrator\Desktop">
+        <!-- dao生成包路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.heepay.manage.modules.errorCheck.dao" targetProject="C:\Users\Administrator\Desktop">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
