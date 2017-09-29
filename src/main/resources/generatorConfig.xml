@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- ojdbc6.jar已经直接放到项目中,无需指定了,同时mysql驱动包也一样,这里同样无需指定 -->
+    <!-- <classPathEntry location="ojdbc6.jar" /> -->
+    <context id="context1" targetRuntime="MyBatis3">
+        <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 这里的type里写的是你的实现类的类全路径 -->
+        <commentGenerator type="org.mybatis.generator.MyCommentGenerator">
+        </commentGenerator>
+
+        <!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                connectionURL="jdbc:oracle:thin:@远程ip地址或localhost:1521:orcl"
+                userId="用户名"
+                password="密码">
+                  针对oracle数据库
+                <property name="remarksReporting"
+            value="true"></property> </jdbcConnection> -->
+
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://192.168.162.150:3306/ngp_base?characterEncoding=utf-8"
+                userId="dev_ddl"
+                password="hydev2016">
+            <!-- 针对mysql数据库 -->
+            <property name="useInformationSchema" value="true"></property>
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- dto class -->
+        <javaModelGenerator targetPackage="model" targetProject="C:\Users\Administrator\Desktop">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mybatis xml file -->
+        <sqlMapGenerator targetPackage="dao" targetProject="C:\Users\Administrator\Desktop">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- mapper class -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="C:\Users\Administrator\Desktop">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!--不生成帮助类（Exmaples） -->
+        <!--<table schema="general" tableName="tb_table_name" domainObjectName="EntityName"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>-->
+
+        <table schema="" tableName="error_status_query" domainObjectName="ErrorStatusQuery" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+        
+        <table schema="" tableName="error_status_receipt" domainObjectName="ErrorStatusReceipt" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+    </context>
+</generatorConfiguration>
