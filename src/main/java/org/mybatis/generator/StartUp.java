@@ -18,7 +18,7 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 /***
  * 
 * 
-* 描    述：
+* 描    述：代码自动生成工具
 *
 * 创 建 者：wangl
 * 创建时间：  29 Sep 201710:17:56

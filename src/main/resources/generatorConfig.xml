@@ -5,7 +5,6 @@
 
 <generatorConfiguration>
     <!-- ojdbc6.jar已经直接放到项目中,无需指定了,同时mysql驱动包也一样,这里同样无需指定 -->
-    <!-- <classPathEntry location="ojdbc6.jar" /> -->
     <context id="context1" targetRuntime="MyBatis3">
         <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -19,9 +18,10 @@
                 password="密码">
                   针对oracle数据库
                 <property name="remarksReporting"
-            value="true"></property> </jdbcConnection> -->
+                value="true">
+            </property> </jdbcConnection> -->
 
-        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 ?characterEncoding=utf-8防止乱码 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
                 connectionURL="jdbc:mysql://192.168.162.150:3306/ngp_base?characterEncoding=utf-8"
@@ -52,7 +52,7 @@
         </javaClientGenerator>
 
 
-        <!--不生成帮助类（Exmaples） -->
+        <!--不生成帮助类（Exmaples）enableCountByExample="false" -->
         <!--<table schema="general" tableName="tb_table_name" domainObjectName="EntityName"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
